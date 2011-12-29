@@ -8,8 +8,8 @@ $lang ||= 'en'
 
 namespace :epub do
 	TMP_DIR = File.join('epub', 'temp', $lang)
-	INDEX_FILEPATH = File.join(TMP_DIR, 'progit.html')
-	TARGET_FILEPATH = "progit-#{$lang}.epub"
+	INDEX_FILEPATH = File.join(TMP_DIR, 'sdcamp.html')
+	TARGET_FILEPATH = "sdcamp-#{$lang}.epub"
 	
 	SOURCE_FILES = FileList.new(File.join($lang, '**', '*.markdown')).sort
 	CONVERTED_MK_FILES = SOURCE_FILES.pathmap(File.join(TMP_DIR, '%f'))

@@ -64,9 +64,6 @@ def pre_pandoc(string, config)
 		# Pandoc discards #### subsubsections #### - this hack recovers them
 		s /\#\#\#\# (.*?) \#\#\#\#/, 'SUBSUBSECTION: \1'
 		
-		# subsubsubsection is not supported in latex	
-		print "hello, ia m here"
-
 		# Turns URLs into clickable links
 		s /\`(http:\/\/[A-Za-z0-9\/\%\&\=\-\_\\\.]+)\`/, '<\1>'
 		s /(\n\n)\t(http:\/\/[A-Za-z0-9\/\%\&\=\-\_\\\.]+)\n([^\t]|\t\n)/, '\1<\2>\1'
@@ -177,8 +174,8 @@ figures do
 		end
 
 		unless abort
-			print "\tMoving output to progit.#{lang}.pdf... "
-                        mv("#{dir}/main.pdf", "#$root/progit.#{lang}.pdf")
+			print "\tMoving output to sdcamp.#{lang}.pdf... "
+                        mv("#{dir}/main.pdf", "#$root/sdcamp.#{lang}.pdf")
 			puts "done"
 		end
 	end
