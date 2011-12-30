@@ -1,0 +1,15 @@
+sdcamp.*.pdf
+sdcamp.*.mobi
+sdcamp.*.epub
+sdcamp.*.html
+sdcamp-*.epub
+*.swp
+latex/*
+!latex/makepdf
+!latex/README
+!latex/template.tex
+!latex/config.yml
+epub/temp
+*~
+.#*
+figures/*
