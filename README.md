@@ -4,7 +4,7 @@ This is the source code for the Software Development book contents.  It is licen
 the Creative Commons Attribution-Non Commercial-Share Alike 3.0 license.  I
 hope you enjoy it, I hope it helps you learn better software development. 
 
-Please check BUILD.md for how to making ebooks and pdf by yourself.
+Please check BUILD.md for how to making ebooks and pdf by yourself, it is reused from [Pro Git](http://github.com/progit/progit) with more detail instruction.
 
 #Errata#
 
