@@ -33,10 +33,15 @@ Insert 18333fig0701.png
 	$ gem install rspec # cucumber 需要
 
 ### 基本知识 ###
+
 #### 基本语法 ####
+Cucumber使用的是
+
 #### 常用的目录结构 ####
 
+
 ### 例子Calculator ###
+
 ### 例子用cucumber实现 ###
 
 ### 课后练习 ###
