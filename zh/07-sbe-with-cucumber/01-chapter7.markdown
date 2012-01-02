@@ -25,12 +25,11 @@ Cucumber（英文：黄瓜）是一个实例化需求的极佳实现伴侣。它
 
 <add 2 layers picture, could refer to concordior>
 
-下面就是一个加法的例子，无需解释也能明白。
+下面就是一个加法的例子，无需解释也能明白。Cucumber文件已.feature结尾。
 
 ~~~~~~~~~~~~~~~~~~~~~~~ {.cucumber .numberLines}
 # 加法 adding.feature
 Feature: Adding
-  This is basic function to make sure the calculator works
   
   Scenario: Add two numbers
     Given the input "2+2"
@@ -57,19 +56,59 @@ Insert 18333fig0701.png
 
 	$ gem install cucumber # 如果需要配代理，-p http://<proxyserver>:<port>
 	$ gem install rspec # cucumber 需要
+	
+### 运行Cucumber ###
 
-### Gherkin语言 ####
-编写Cucumber文件的语言是Gherkin（有翻译叫格莱克林），它的关键字就是“Given”、“And”等等这样的字眼。
+一旦Cucumber装好了，我们就可以使用 cucumber 命令来运行feature文件。
 
-一个常见的Cucumber文件描述分为"Feature" (加粗）（特性）、scenarios（场景）、和steps（步骤）。让我们来看看上面的例子:
+feature文件放在`features`目录下，如果cucumber命令后不跟任何东西的话，那么它会执行所有的.feature文件。如果我们只想运行某一个.feature文件，我们可以使用命令 `cucumber features\feature_name`
 
- 1. `Feature: Adding`: 关键字Feature，加上简单的描述要做什么，想想看怎么搜索，就用这个搜索关键字就可以了。
- 2. 接下来的几行不会被解析，一般写成(In order to... As an... I want to...)格式。这些行只提供背景的人读你的功能，并描述列入在软件功能衍生的商业价值。
- 3. `Scenario: Add two numbers`：关键字Scenario情景：描述这个特性的一个场景，也是简短的一句话。
+~~~~~~~~~~~~~~~~~~~~~~ {.cucumber .numberLines}
+$ cucumber features/adding.feature
+Feature: Adding
+
+  Scenario: Add two numbers       # features\adding.feature:3
+    Given the input "2+2"         # features\adding.feature:4
+    When the calculator is run    # features\adding.feature:5
+    Then the output should be "4" # features\adding.feature:6
+
+  Scenario Outline: Add two numbers      # features\adding.feature:8
+    Given the input "<input>"            # features\adding.feature:9
+    When the calculator is run           # features\adding.feature:10
+    Then the output should be "<output>" # features\adding.feature:11
+
+    Examples:
+      | input | output |
+      | 2+2   | 4      |
+      | 98+1  | 99     |
+
+3 scenarios (3 undefined)
+9 steps (9 undefined)
+0m0.046s
+
+You can implement step definitions for undefined steps with these snippets:
+
+Given /^the input "([^"]*)"$/ do |arg1|
+  pending # express the regexp above with the code you wish you had
+end
+
+.....
+~~~~~~~~~~~~~~~~~~~~~
+
+你就可以看到它被正常执行了，后面几行是驱动层的模板，稍后解释。
+
+### Gherkin语言 ###
+Cucumber是一个解释程序，Cucumber用来执行解释 .feature文件里的Gehrkin代码（有翻译叫格莱克林），它的关键字就是“Given”、“And”等等这样的字眼。
+
+一个常见的Cucumber文件描述分为_Feature（特性）、scenarios（场景）、和steps（步骤）。让我们来看看上面的例子:
+
+ 1. `Feature: Adding`: 每一个feature文件以关键字_Feature_开始，且紧跟着一个冒号和一个简单描述。
+ 2. 接下来的几行描述不会被解析，一般写成(In order to... As an... I want to...)格式。这些行只提供背景的人读你的功能，并描述列入在软件功能衍生的商业价值。
+ 3. `Scenario: Add two numbers`：关键字_Scenario_后面紧跟一个冒号和一个对应该场景的描述，也是简短的一句话。
  4. 接下来的几行也不会被解析，也是为了了解背景而用。
- 5. 后面的以 Given/When/Then/And 开头的都是步骤，来阐述到底要的是什么样的需求。
+ 5. 后面的以 _Given_/_When_/_Then_/_And_/_But_ 开头的都是步骤（步骤后面不需要跟冒号），用来阐述到底要的是什么样的需求。
  6. `Scenario Outline: Add two numbers`: 关键字Scenario Outline，和Scenario不同的是它是支持表格的形式。
- 7. Scenario 和 Scenario Outline提供了特性的多个场景，可以出现多次。
+ 7. _Scenario_ 和 _Scenario Outline_提供了特性的多个场景，可以出现多次。
 
 ### 常用的目录结构 ###
 
