@@ -1,4 +1,5 @@
 default:
+  title: Softwate Development Boot Camp
   font: Liberation Serif
   bold: "{* Bold}"
   mono: Liberation Mono
@@ -14,6 +15,7 @@ default:
   indent: "\\qquad"
   thanks: "This is the PDF file for the Software Development - Boot Camp book contents. It is licensed under the Creative Commons Attribution-Non Commercial-Share Alike 3.0 license. I hope you enjoy it, I hope it helps you learn the software development, and I hope you'll continuously watch this : \\url{http://github.com/larry.caiyu/sdcamp}"
 zh:
+  title: 跟我学软件开发
   langrule: "\\XeTeXlinebreakskip=0em plus 0.1em minus 0.01em\n\\XeTeXlinebreakpenalty=0"
   font: AR PL UMing CN
   bold: AR PL UKai CN

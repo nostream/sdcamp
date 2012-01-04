@@ -26,7 +26,7 @@
 
 \settowidth{\parindent}{<%= config['indent'] %>}
 
-\title{Softwate Development Boot Camp}
+\title{{<%= config['title'] %>}}
 \author{Larry Cai}
 
 \makeatletter
@@ -37,7 +37,8 @@
 \else\Gin@nat@width\fi}
 \makeatother
 
-\title{\textbf{\savedtitle}}
+\title{\huge{\savedtitle}}
+
 \author{\textbf{\savedauthor}\thanks{<%= config['thanks'] %>}}
 \def\w3cdtfymd{\the\year-\ifnum\month<10 0\fi\the\month-\ifnum\day<10 0\fi\the\day}
 \date{\w3cdtfymd}
