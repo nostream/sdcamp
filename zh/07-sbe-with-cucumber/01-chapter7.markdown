@@ -17,46 +17,99 @@
 那是否有好的办法把需求质量有效得提高？
 
 ### 实例化需求 ###
+实例化需求顾名思义就是用例子的方式去阐述需求，这个概念是由Gojko Adzic提出的。
 
-#### 例子 1 ####
+Insert 18333fig0701.png 
+图 7-1. 实例化需求的主要过程模式
+
+主要过程模式包括：
+
+  1. 从目标中获取范围：要一直牢记商业价值，为什么要做。很多时候执行项目时太关注怎么做了。
+  2. 用例子来协作探讨需求：例子能更好得把需求描述清楚，不能含糊。
+  3. 提炼需求说明：通过例子了解需求后就可以提炼出需要的需求说明。
+  4. 执行需求说明并自动化：需求说明如果能执行并放入到持续集成后，信息就不会过期。
+  5. 活文档：文档要长久，就必须要容易维护，从需求说明中自动产生出的活文档是最有效的方式。
+
+### 一个例子 ###
+某个网上书店要提高用户的回头率，就提出了口号，“到年末，达到50%的用户的回头率”，这就是目标，一般是由上层的经理根据市场决定的。
+
+业务经理和领域专家们就可能从中提出一些项目范围，如
+
+  * 给用户打折卡
+  * 通过email主动推销优惠信息
+  * 买书免运费
+  * 。。
+  
+假定**买书免运费**活动不错，现在就可以用例子的方式来清楚的阐明需求。
+
+  * 一个普通客户买一本书，免运费。
+  
+听着不太划算，业务经理认为要有一定数量，那就先定6本吧。
+
+  * 一个普通客户买6本书，免运费。
+  * 一个普通客户买5本书，运费大于0。
+  
+蛮清楚的了，有人提出了，加个U盘的情况，业务经理想想没损失，同意。再有人想到了冰箱。
+
+  * 一个普通客户买6本书，免运费
+  * 一个普通客户买5本书，运费大于0。
+  * 一个普通客户买6本书和一个U盘，免运费
+  * 一个普通客户买6本书和一台冰箱，免运费？？？
+  
+噢，业务经理想想要亏本了，事情变复杂了。为了简化起见，决定只对图书免运费。
+
+  * 一个普通客户买6本书，免运费
+  * 一个普通客户买5本书，运费大于0。
+  * 一个普通客户买6本书和一个U盘，运费大于0
+
+一个技术人员提出了运货范围，业务经理想了想竞争对手的情况，决定只给除西藏省，青海省的大陆地区免运费，差不多大家都清楚了。
+
+  * 一个普通客户买6本书，送货地址到西藏，免运费。
+  * 一个普通客户买6本书，送货地址到西藏，运费大于0
+  * 一个普通客户买5本书，运费大于0。
+  * 一个普通客户买6本书和一个U盘，运费大于0
+  
+提炼出需求说明就是
+
+	提供读者买书优惠活动，买书超过（含）6本以上的，可以免费送货到除西藏省，青海省的大陆地区
+	
+这是最重要的步骤，关于怎么执行的，在下面分解。	
 
 ## Cucumber ##
 Cucumber（英文：黄瓜）是一个实例化需求的极佳实现伴侣。它是基于Ruby的开源测试工具，得益于Ruby便于创建和使用DSL的特性，它可以通过自然语言（文本文字）来描述需求（业务层），并通过关键字驱动和正则表达式匹配告诉去做哪些事情（驱动层），在运行自动化测试结束以后，还会给出详细的报告。
 
-Insert 18333fig0701.png 
-图 7-1. Cucumber的架构
+Insert 18333fig0702.png 
+图 7-2. Cucumber的架构
 
 下面就是一个加法的例子，无需解释也能明白。Cucumber文件已`.feature`结尾。
 
-~~~~~~~~~~~~~~~~~~~~~~~ {.cucumber .numberLines}
-# 加法 adding.feature
-Feature: Adding
-  In order to avoid silly mistakes
-  As a math idiot
-  I want to be told the sum of two numbers
-  
-  Scenario: Add two numbers
-    Given the input "2+2"
-    When the calculator is run
-    Then the output should be "4"
+	# 加法 adding.feature
+	Feature: Adding
+	  In order to avoid silly mistakes
+	  As a math idiot
+	  I want to be told the sum of two numbers
+	  
+	  Scenario: Add two numbers
+		Given the input "2+2"
+		When the calculator is run
+		Then the output should be "4"
 
-  Scenario Outline: Add two numbers
-    Given the input "<input>"
-    When the calculator is run
-    Then the output should be "<output>"
-    Examples:
-      | input | output |
-      | 2+2 | 4 |
-      | 98+1 | 99 |
-~~~~~~~~~~~~~~~~~~~~~~~~~~~		
+	  Scenario Outline: Add two numbers
+		Given the input "<input>"
+		When the calculator is run
+		Then the output should be "<output>"
+		Examples:
+		  | input | output |
+		  | 2+2 | 4 |
+		  | 98+1 | 99 |
 
 Cucumber的官方网站是http://cukes.info/ 
 		
 ### 安装 ###
 在Windows上，RubyInstaller提供了ruby的环境，下载安装包（如`rubyinstaller-1.9.3-p0.exe`)，运行即可，别忘了把“Ruby放入PATH中”的选项选上。
 
-Insert 18333fig0702.png 
-图 7-2. Windows平台安装Cucumber
+Insert 18333fig0703.png 
+图 7-3. Windows平台安装Cucumber
 
 	$ gem install cucumber # 如果需要配代理，-p http://<proxyserver>:<port>
 	$ gem install rspec # cucumber 需要
@@ -67,39 +120,37 @@ Insert 18333fig0702.png
 
 feature文件放在`features`目录下，如果cucumber命令后不跟任何东西的话，那么它会执行所有的.feature文件。如果我们只想运行某一个.feature文件，我们可以使用命令 `cucumber features\feature_name`
 
-~~~~~~~~~~~~~~~~~~~~~~~ {.cucumber .numberLines}
-$ cucumber features/adding.feature
-Feature: Adding
-  In order to avoid silly mistakes
-  As a math idiot
-  I want to be told the sum of two numbers
+	$ cucumber features/adding.feature
+	Feature: Adding
+	  In order to avoid silly mistakes
+	  As a math idiot
+	  I want to be told the sum of two numbers
 
-  Scenario: Add two numbers       # features\adding.feature:3
-    Given the input "2+2"         # features\adding.feature:4
-    When the calculator is run    # features\adding.feature:5
-    Then the output should be "4" # features\adding.feature:6
+	  Scenario: Add two numbers       # features\adding.feature:3
+		Given the input "2+2"         # features\adding.feature:4
+		When the calculator is run    # features\adding.feature:5
+		Then the output should be "4" # features\adding.feature:6
 
-  Scenario Outline: Add two numbers      # features\adding.feature:8
-    Given the input "<input>"            # features\adding.feature:9
-    When the calculator is run           # features\adding.feature:10
-    Then the output should be "<output>" # features\adding.feature:11
+	  Scenario Outline: Add two numbers      # features\adding.feature:8
+		Given the input "<input>"            # features\adding.feature:9
+		When the calculator is run           # features\adding.feature:10
+		Then the output should be "<output>" # features\adding.feature:11
 
-    Examples:
-      | input | output |
-      | 2+2   | 4      |
-      | 98+1  | 99     |
+		Examples:
+		  | input | output |
+		  | 2+2   | 4      |
+		  | 98+1  | 99     |
 
-3 scenarios (3 undefined)
-9 steps (9 undefined)
-0m0.046s
+	3 scenarios (3 undefined)
+	9 steps (9 undefined)
+	0m0.046s
 
-You can implement step definitions for undefined steps with these snippets:
+	You can implement step definitions for undefined steps with these snippets:
 
-Given /^the input "([^"]*)"$/ do |arg1|
-  pending # express the regexp above with the code you wish you had
-end
-...
-~~~~~~~~~~~~~~~~~~~~~~~~~~~		
+	Given /^the input "([^"]*)"$/ do |arg1|
+	  pending # express the regexp above with the code you wish you had
+	end
+	...
 
 你就可以看到它被正常执行了，后面几行是驱动层的模板，稍后解释。
 
@@ -128,23 +179,21 @@ Cucumber是一个解释程序，Cucumber用来执行解释 .feature文件里的G
 ### 常用的目录结构 ###
 常用的目录结构是
 
-~~~~~~~~~~~~~~~~~~~~~~ 
-$ find calculator
-calculator/
-calculator/feature.html
-calculator/features
-calculator/features/adding.feature
-calculator/features/division.feature
-calculator/step_definitions
-calculator/step_definitions/calculator_steps.rb
-~~~~~~~~~~~~~~~~~~~~~~~~~~~		
+	$ find calculator
+	calculator/
+	calculator/feature.html
+	calculator/features
+	calculator/features/adding.feature
+	calculator/features/division.feature
+	calculator/step_definitions
+	calculator/step_definitions/calculator_steps.rb
 
  1. `features`下面按功能放置各个业务
  2. `step_definitions`存放驱动层的脚本。
  3. [TODO] `config` (profile), `support`
  
 ### 课后练习 ###
- 1. 找一个自己身边的例子，尝试用实例化需求说明的方式来描述清楚，并写成Cucumber的格式。
+ 1. 把网上书店的例子，尝试用实例化需求说明的方式来描述清楚，并写成Cucumber的格式。
  2. 了解Gherkin语言的详细内容，如**tag**，并结合Cucumber去执行。
  3. 看看如何能够实施Cucumber，使它能够整合到持续集成中去。
 
@@ -153,6 +202,7 @@ calculator/step_definitions/calculator_steps.rb
 实例化需求是一种很棒的协作探索需求的好办法，但是要用熟练了还是很有难度得。Cucumber也只是一种工具，如果不理解实例化需求说明的真正意义，它会被用得很累，好自为之。
 
 ## 参考 ##
- 1. Specification by example. <http://manning.com/adzic>
- 2. Cucumber <http://cukes.info>
- 3. Gherkin语言：<https://github.com/cucumber/cucumber/wiki/Gherkin>
+ 1. Book: Specification by example. <http://manning.com/adzic>
+ 2. Specification by example <http://specificationbyexample.com>
+ 3. Cucumber <http://cukes.info>
+ 4. Gherkin语言：<https://github.com/cucumber/cucumber/wiki/Gherkin>

@@ -13,7 +13,7 @@ default:
   fig: "Figure "
   tab: "Table "
   indent: "\\qquad"
-  thanks: "This is the PDF file for the Software Development - Boot Camp book contents. It is licensed under the Creative Commons Attribution-Non Commercial-Share Alike 3.0 license. I hope you enjoy it, I hope it helps you learn the software development, and I hope you'll continuously watch this : \\url{http://github.com/larry.caiyu/sdcamp}"
+  thanks: "This is the PDF file for the Software Development - Boot Camp book contents. It is licensed under the Creative Commons Attribution-Non Commercial-Share Alike 3.0 license. I hope you enjoy it, I hope it helps you learn the software development, and I hope you'll continuously watch this : \\url{http://github.com/larrycai/sdcamp}"
 zh:
   title: 跟我学软件开发
   langrule: "\\XeTeXlinebreakskip=0em plus 0.1em minus 0.01em\n\\XeTeXlinebreakpenalty=0"
