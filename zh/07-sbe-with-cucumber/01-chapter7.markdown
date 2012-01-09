@@ -1,6 +1,6 @@
 # 需求管理和Cucumber #
 
-在一个项目中，需求是推动整个软件开发的源泉。它确定了方向，方向（需求）错了，后面开发测试的再辛苦，再正确都是白搭。
+在一个项目中，需求是推动整个软件开发的源泉。它确定了方向，方向（需求）错了，后面开发测试得再辛苦，再正确都是白搭。
 
 在本章，我们一起来学习需求管理中现在最有效果的一种实践-实例化需求（Specification by example)。同时会通过学习相关联的Cucumber软件来切身体会怎么将需求贯穿下去。
 
@@ -188,9 +188,9 @@ Cucumber是一个解释程序，Cucumber用来执行解释 .feature文件里的G
 	calculator/step_definitions
 	calculator/step_definitions/calculator_steps.rb
 
- 1. `features`下面按功能放置各个业务
+ 1. `features`下面按功能放置各个业务。
  2. `step_definitions`存放驱动层的脚本。
- 3. [TODO] `config` (profile), `support`
+ 3. TODO：`config` (profile), `support`
  
 ### 课后练习 ###
  1. 把网上书店的例子，尝试用实例化需求说明的方式来描述清楚，并写成Cucumber的格式。
