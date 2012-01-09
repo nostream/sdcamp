@@ -17,7 +17,7 @@ default:
 zh:
   title: 跟我学软件开发
   langrule: "\\XeTeXlinebreakskip=0em plus 0.1em minus 0.01em\n\\XeTeXlinebreakpenalty=0"
-  font: AR PL UMing CN
+  font: Adobe Song Std
   bold: AR PL UKai CN
   mono: AR PL UKai CN
   prechap: "第"
