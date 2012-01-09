@@ -17,9 +17,19 @@ default:
 zh:
   title: 跟我学软件开发
   langrule: "\\XeTeXlinebreakskip=0em plus 0.1em minus 0.01em\n\\XeTeXlinebreakpenalty=0"
-  font: Adobe Song Std
+  font: AR PL UMing CN
   bold: AR PL UKai CN
-  mono: AR PL UKai CN
+  mono: WenQuanYi Zen Hei Mono
+  # AR is 文鼎字体，中文缺省 http://www.arphic.com/cn/home.html
+  # UMing: 上海宋
+  # UKai: 中楷
+  # WenQuanYi is 文泉驿 http://wenq.org/
+  # WenQuanYi Bitmap Song: 点阵宋 (! had problem ?)
+  # WenQuanYi Micro Hei：微米黑
+  # WenQuanYi Zen Hei：正黑
+  #font: AR PL UMing CN
+  #bold: AR PL UKai CN
+  #mono: AR PL UKai CN  
   prechap: "第"
   postchap: "章"
   presect: ""
