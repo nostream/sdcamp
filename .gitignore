@@ -3,6 +3,7 @@ sdcamp.*.mobi
 sdcamp.*.epub
 sdcamp.*.html
 sdcamp-*.epub
+*.pdf
 *.swp
 latex/*
 !latex/makepdf
