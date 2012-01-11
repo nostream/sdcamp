@@ -42,6 +42,7 @@ echo
 echo "The generation process will start now."
 time ${baseDir}/latex/makepdf $argString
 
+# pdftk A=ebooks/cover.pdf B=sdcamp.zh.pdf cat A1 B2-end output sdcamp.zh.book.pdf 
 echo
 echo
 echo "Done!"

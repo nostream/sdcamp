@@ -8,7 +8,7 @@ Cucumber（英文：黄瓜）是一个实例化需求的极佳实现伴侣。它
 Insert 18333fig0701.png
 图 7-1. Cucumber的架构
 
-下面就是一个加法的例子，无需解释也能明白。Cucumber文件已`.feature`结尾。
+下面就是一个加法的例子，无需解释也能明白。Cucumber文件以`.feature`结尾。
 
 	# 加法 adding.feature
 	Feature: Adding
@@ -93,7 +93,7 @@ Cucumber的驱动层可以用ruby，java和其他语言来支持，很多时候�
 ### Gherkin语言 ###
 Cucumber是一个解释程序，Cucumber用来执行解释 .feature文件里的Gehrkin代码（有翻译叫格莱克林），它的关键字就是“Given”、“And”等等这样的字眼。
 
-一个常见的Cucumber文件描述分为 **Feature（特性）**、**scenarios（场景）**、和**steps（步骤）**。让我们来看看上面的例子:
+一个常见的Cucumber文件描述分为 **Feature（特性）**、**Scenario（场景）**、和**Step（步骤）**。让我们来看看上面的例子:
 
  1. `Feature: Adding`: 每一个feature文件以关键字**Feature**开始，且紧跟着一个冒号和一个简单描述。
  2. 接下来的几行描述不会被解析，一般写成(In order to... As an... I want to...)格式。这些行只提供背景的人读你的功能，并描述列入在软件功能衍生的商业价值。

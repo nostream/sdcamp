@@ -24,9 +24,9 @@ Java代码质量在企业中还是有很多有用的工具来保证的。
 在服务器端，sonar是个非常好用的工具，它把需要的质量信息都归纳起来了。
 
 Insert 18333fig0501.png 
-图 4-2. Sonar
+图 5-1. Sonar
 
-### 代码风格/编程规范 ###
+### 代码风格和编程规范 ###
 编程规范（代码风格）不需要自己去创立，继承别人现有代码就可以了，建议用`checkstyle`工具强制控制一些基本的。
 
 下面列出一些常见的，不过重要的是理解，而不是事后检查。千万不要打印或制定厚厚的规范，没用的。可以翻翻[Java的编程规范][javacoding]，下面列出几个：
@@ -36,7 +36,7 @@ Insert 18333fig0501.png
   * 内部变量声明时应该对它进行初始化。
   * 不能有Magic number。        
  
-#### 安全 ####
+### 安全代码 ###
 有些时候还要考虑一下写出安全的代码，这和产品的性质有关，web类的会考虑得多一点。可以翻翻[Java的安全代码编程规范][javasec]:
 
   * 要对输入信息（参数、特殊字符、SQL注入）进行检查验证。
@@ -46,17 +46,25 @@ Insert 18333fig0501.png
 ### 单元测试 ###
 这个应该是最简单的，但还是发现好多人都不做，要养成习惯，每个公共方法都需要至少有一个测试用例。
 
-单元测试是代码的一部分，同时签入版本库，本地没有100%过，不允许提交代码。
+单元测试是代码的一部分，要养成同时签入版本库的习惯。而且如果本地没有100%测试通过，也不允许提交代码。
 
 ### 代码覆盖率 ###
 有了单元测试，后就可以来看看代码覆盖率，建议在Eclipse中安装[EclEmma][eclemma]，非常好用。
 
-服务器端不用sonar的话，cobertura不错。
+Insert 18333fig0502.png 
+图 5-2. Eclipse插件EclEmma
+
+服务器端不用Sonar的话，cobertura不错。
 
 ### 重构 ###
 重构分好几层，这里主要考虑日常的重构，千万不要跟经理或项目经理要求时间，这个是对他们不可见的，当然团队可以了解你重构的内容。
 
-不要把重构当成很复杂的东西，大多数是很简单的，在Eclipse中点几下就可以了，最常见的重构有：
+不要把重构当成很复杂的东西，大多数是很简单的，在Eclipse中点几下就可以了。
+
+Insert 18333fig0503.png 
+图 5-3. Eclipse中使用Refactor
+
+最常见的重构有：
  
   * Rename (改名字）
   * Extract Method （提取函数）
@@ -65,6 +73,8 @@ Insert 18333fig0501.png
 关键的是看到坏代码，要养成习惯去重构，基础是有质量高的单元测试。  
 
 ### 测试驱动开发 TDD ###
+
+... 持续码字中，休息一会儿，休息一会儿 ...
 
 ### Mock ###
 
@@ -76,6 +86,7 @@ Insert 18333fig0501.png
  1. The Principles of OOD : <http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod>
  2. 重构：<http://book.douban.com/subject/4262627/>
  3. 测试驱动的面向对象软件开发：<http://book.douban.com/subject/4910582/>
+ 4. EclEmma: <http://www.eclemma.org/>
  
  [javacoding]: http://www.oracle.com/technetwork/java/codeconv-138413.html
  [javasec]:    http://www.oracle.com/technetwork/java/seccodeguide-139067.html
