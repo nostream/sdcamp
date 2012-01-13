@@ -21,13 +21,19 @@ zh:
   bold: AR PL UKai CN
   mono: WenQuanYi Zen Hei Mono
   # AR is 文鼎字体，中文缺省 http://www.arphic.com/cn/home.html
-  # UMing: 上海宋
-  # UKai: 中楷
+  # http://www.debian.org/international/Chinese/software
+  # AR PL UMing: 文鼎PL细上海宋 : 句号有问题
+  # AR PL UKai: 文鼎PL中楷
+  # AR PL SungtiL GB : 文鼎PL简报宋 ， * (item) 有问题！为空
+  # AR PL KaitiM GB : 文鼎PL简中楷
   # WenQuanYi is 文泉驿 http://wenq.org/
   # WenQuanYi Bitmap Song: 点阵宋 (! had problem ?)
   # WenQuanYi Micro Hei：微米黑
-  # WenQuanYi Zen Hei：正黑
-  #font: AR PL UMing CN
+  # WenQuanYi Zen Hei Mono：正黑
+  # Adobe Song Std: Adobe 宋体 ， * (item) 有问题！为框
+  #
+  # default below
+  #font: AR PL UMing CN 
   #bold: AR PL UKai CN
   #mono: AR PL UKai CN  
   prechap: "第"
