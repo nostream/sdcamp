@@ -2,12 +2,12 @@
 
 持续集成是一种软件开发实践，它是Martin Fowler先生提出的[1]。一个在企业开发中必须的软件实践，谁也不会容忍企业的软件发布是在一个私人机器上完成的。
 
-在持续集成中，团队成员频繁集成他们的工作成果，一般每人每天至少集成一次，也可以多次。每次集成会经过自动构建（包括自动测试）的验证，以尽快发现集成错误。许多团队发现这种方法可以显著减少集成引起的问题，并可以加快团队合作软件开发的速度[2]。
+在持续集成中，团队成员频繁集成他们的工作成果，一般每人每天至少集成一次，在保证质量的同事也可以多次。每次集成会经过自动构建（包括自动测试）的验证，以尽快发现集成错误。许多团队发现这种方法可以显著减少集成引起的问题，并可以加快团队合作软件开发的速度[2]。
 
 ## 环境准备 ##
 服务器端准备好 Game of life项目的git仓库，客户端需要:
 
- * maven 2.x 包 <http://maven.apache.org/download.html>
+ * Maven 2.x 包 <http://maven.apache.org/download.html>
  * JDK 6 <http://www.oracle.com/technetwork/java/javase/downloads/index.html>
  * Jenkins <http://jenkins-ci.org/>
 
@@ -26,10 +26,10 @@ Insert 18333fig0401.png
 图 4-1. 持续集成流程
 
 ## Maven ##
-Maven是一个Java项目管理工具，就像make对于c/c++项目。和它“类似”的是Ant。Maven比Ant的好处是：
+Maven是一个Java项目管理工具，就像Make对于c/c++项目。和它“类似”的是Ant。Maven比Ant的好处是：
 
- * 依赖包的管理只要写配置文件就可以了，ant需要把依赖的3pp的二进制包放在项目里。
- * 定义了标准集合，简单了项目管理的文件。
+ * 依赖包的管理只要写配置文件就可以了，Ant需要把依赖的3pp的二进制包放在项目里。
+ * 定义了标准集合，简单了项目的管理。
 
 Maven还包括：
 
@@ -39,7 +39,7 @@ Maven还包括：
  * 一个依赖管理系统(Dependency Management System)，和用来运行定义在生命周期阶段(phase)中插件(plugin)目标(goal)的逻辑。
 
 ### 安装Maven ###
-装好JDK6，熟悉Unix环境，用Git bash安装maven
+装好JDK6，熟悉Unix环境，用Git bash安装Maven
 
 	$ cd /c  # Windows C:/
 	$ tar -zxvf ~/Desktop/apache-maven-2.2.1-bin.tar.gz
@@ -105,6 +105,8 @@ Insert 18333fig0404.png
   
 Insert 18333fig0405.png 
 图 4-5. Jenkins game-of-life配置。  
+
+### 在Sonar中观察结果 ###
 
 ## 课后练习 ##
  1. 装一些插件（Raditor，cobertura）体会一下。

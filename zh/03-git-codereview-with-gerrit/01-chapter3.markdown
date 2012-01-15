@@ -22,7 +22,7 @@ Insert 18333fig0301.png
 图 3-1. 集中式和分布式版本控制
 
 ## 基本 Git ##
-Git的学习曲线相对来说还是有点高的，但只要掌握了基本的一些命令，日常的工作就没有问题了。
+Git的学习曲线相对来说还是有点陡的，但只要掌握了基本的一些命令，日常的工作就没有问题了。
 
 ### 安装 ###
 先装好Windows版的Git，["Git for windows"](http://code.google.com/p/msysgit/downloads/list?can=3&q=official+Git)，很多人老是说装msysgit，实际上msysgit是一个含有整套源码环境的系统（如C编译器），除非你是个Git极客，否者别自寻麻烦。
@@ -30,7 +30,7 @@ Git的学习曲线相对来说还是有点高的，但只要掌握了基本的�
 缺省安装就可以了，除非你是专家，否者别选Putty的ssh。初学者80%的Git的问题出在ssh连接上。
 
 ### 配置 Git ###
-先要告诉Git你是谁，怎么联系你，要看彩色还是黑白的。
+先要告诉Git你是谁，怎么联系你，这样在代码库中才能找到提交者。界面也可设置成彩色。
 
     $ git config --global user.name "Your name"  
 	$ git config --global user.email "Your email address"
@@ -56,29 +56,16 @@ Git的学习曲线相对来说还是有点高的，但只要掌握了基本的�
 	.
 	./.git
 	./.git/config
-	./.git/description
-	./.git/HEAD
 	./.git/hooks
-	./.git/hooks/applypatch-msg.sample
-	./.git/hooks/commit-msg.sample
-	./.git/hooks/post-commit.sample
-	./.git/hooks/post-receive.sample
-	./.git/hooks/post-update.sample
-	./.git/hooks/pre-applypatch.sample
-	./.git/hooks/pre-commit.sample
-	./.git/hooks/pre-rebase.sample
-	./.git/hooks/prepare-commit-msg.sample
+	...
 	./.git/hooks/update.sample
 	./.git/info
-	./.git/info/exclude
 	./.git/objects
-	./.git/objects/info
-	./.git/objects/pack
 	./.git/refs
 	./.git/refs/heads
 	./.git/refs/tags
 	
-你会发现建了`.git`目录，下面有很多东西，自己瞅瞅，琢磨琢磨。这就是你的本地Git仓库了。
+你会发现建了`.git`目录，下面有很多东西，自己瞅瞅，琢磨琢磨，这也是平时自我提高的一个办法。不管怎样，这就是你的本地Git仓库了。
 
 ### 第一个提交 ###
 继续吧
@@ -106,6 +93,8 @@ Git的学习曲线相对来说还是有点高的，但只要掌握了基本的�
 	$ git checkout bug123 # 切换到bug123分支。
 	Switched to branch 'bug123'
 	$ git checkout -b bug234 # 创建并直接切换到bug234分支
+	
+### Git使用的良好习惯 ###	
 	
 ## 和Git服务器远程连接 ##
 在本地练习的比较久了，该把代码上传到Git服务器了。Git服务器有好几种，企业建议用Gerrit。
