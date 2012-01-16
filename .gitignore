@@ -13,3 +13,4 @@ latex/*
 epub/temp
 *~
 .#*
+*.epub
