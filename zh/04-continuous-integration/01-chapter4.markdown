@@ -108,6 +108,8 @@ Insert 18333fig0405.png
 
 ### 在Sonar中观察结果 ###
 
+## 相关知识 ##
+
 ## 课后练习 ##
  1. 装一些插件（Raditor，cobertura）体会一下。
  2. 把JUnit的单元测试结果显示出来。

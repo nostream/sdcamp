@@ -2,7 +2,10 @@
 
 在本章，我们会通过学习相关联的Cucumber软件来切身体会怎么将需求贯穿下去。
 
-## Cucumber ##
+## 环境准备 ##
+ * Windows下的Ruby
+ 
+## Cucumber 简介 ##
 Cucumber（英文：黄瓜）是一个实例化需求的极佳实现伴侣。它是基于Ruby的开源测试工具，得益于Ruby便于创建和使用DSL的特性，它可以通过自然语言（文本文字）来描述需求（业务层），并通过关键字驱动和正则表达式匹配告诉去做哪些事情（驱动层），在运行自动化测试结束以后，还会给出详细的报告。
 
 Insert 18333fig0701.png
@@ -32,7 +35,7 @@ Insert 18333fig0701.png
 
 Cucumber的官方网站是http://cukes.info/ 
 		
-### 安装 ###
+## 安装 ##
 在Windows上，RubyInstaller提供了ruby的环境，下载安装包（如`rubyinstaller-1.9.3-p0.exe`)，运行即可，别忘了把“Ruby放入PATH中”的选项选上。
 
 Insert 18333fig0702.png 
@@ -41,7 +44,7 @@ Insert 18333fig0702.png
 	$ gem install cucumber # 如果需要配代理，-p http://<proxyserver>:<port>
 	$ gem install rspec # cucumber 需要
 	
-### 运行Cucumber ###
+## 运行Cucumber ##
 
 一旦Cucumber装好了，我们就可以使用 cucumber 命令来运行feature文件。
 
@@ -81,7 +84,7 @@ feature文件放在`features`目录下，如果cucumber命令后不跟任何东�
 
 你就可以看到它被正常执行了，后面几行是驱动层的模板，稍后解释。
 
-### 驱动层 ###
+## 驱动层 ##
 Cucumber的驱动层可以用ruby，java和其他语言来支持，很多时候主要依赖团队的兴趣。
 
 建一个`step_definitions`目录，把上面运行的代码模板片段写入`calculator_steps.rb`文件中，并且把`pending`注释掉，再次运行`cucumber`，就很顺利通过了。
@@ -90,7 +93,7 @@ Cucumber的驱动层可以用ruby，java和其他语言来支持，很多时候�
 
 驱动层可以把结果返回，并和设定的期望值匹配来确定测试结果。
 
-### Gherkin语言 ###
+## Gherkin语言 ##
 Cucumber是一个解释程序，Cucumber用来执行解释 .feature文件里的Gehrkin代码（有翻译叫格莱克林），它的关键字就是“Given”、“And”等等这样的字眼。
 
 一个常见的Cucumber文件描述分为 **Feature（特性）**、**Scenario（场景）**、和**Step（步骤）**。让我们来看看上面的例子:
@@ -103,7 +106,7 @@ Cucumber是一个解释程序，Cucumber用来执行解释 .feature文件里的G
  6. `Scenario Outline: Add two numbers`: 关键字Scenario Outline，和Scenario不同的是它是支持表格的形式。
  7. **Scenario** 和 **Scenario Outline**提供了特性的多个场景，可以出现多次。
 
-### 常用的目录结构 ###
+## 常用的目录结构 ##
 常用的目录结构是
 
 	$ find calculator
@@ -119,7 +122,7 @@ Cucumber是一个解释程序，Cucumber用来执行解释 .feature文件里的G
  2. `step_definitions`存放驱动层的脚本。
  3. TODO：`config` (profile), `support`
  
-### 课后练习 ###
+## 课后练习 ##
  1. 把网上书店的例子，尝试用实例化需求说明的方式来描述清楚，并写成Cucumber的格式。
  2. 了解Gherkin语言的详细内容，如**tag**，并结合Cucumber去执行。
  3. 看看如何能够实施Cucumber，使它能够整合到持续集成中去。
