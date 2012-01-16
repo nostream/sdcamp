@@ -117,6 +117,8 @@ def post_pandoc(string, config)
 		# set the space of itemsize
 		s /(\\begin\{itemize\})/m,'\begin{itemize}\setlength{\itemsep}{1pt}\setlength{\parskip}{0pt}\setlength{\parsep}{0pt}'
 		s /(\\begin\{enumerate\})/m,'\begin{enumerate}\setlength{\itemsep}{1pt}\setlength{\parskip}{0pt}\setlength{\parsep}{0pt}'
+		# hardcode for itemize to use * instead of dot, which is missed in some chinese fonts
+		s /(^\\item)/m,'\item[*]'
 		
 	end
 end

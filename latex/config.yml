@@ -17,7 +17,7 @@ default:
 zh:
   title: 跟我学企业敏捷开发
   langrule: "\\XeTeXlinebreakskip=0em plus 0.1em minus 0.01em\n\\XeTeXlinebreakpenalty=0"
-  font: AR PL UMing CN
+  font: AR PL SungtiL GB
   bold: AR PL UKai CN
   mono: WenQuanYi Zen Hei Mono
   # AR is 文鼎字体，中文缺省 http://www.arphic.com/cn/home.html
