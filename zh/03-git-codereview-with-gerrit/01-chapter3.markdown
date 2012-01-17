@@ -32,52 +32,62 @@ Git的学习曲线相对来说还是有点陡的，但只要掌握了基本的�
 ### 配置 Git ###
 先要告诉Git你是谁，怎么联系你，这样在代码库中才能找到提交者。界面也可设置成彩色。
 
-    $ git config --global user.name "Your name"  
-	$ git config --global user.email "Your email address"
-	$ git config --global color.ui auto
+~~~~~~~~~~~~~ {.bash}
+$ git config --global user.name "Your name"  
+$ git config --global user.email "Your email address"
+$ git config --global color.ui auto
+~~~~~~~~~~~~~~
 
 `--global`就是把配置放在你的HOME下 `~/.gitconfig`，下面两条命令都可看到全局定义。
 
-    $ less ~/.gitconfig	
-	$ git config -l --global
+~~~~~~~~~~~~~ {.bash}
+$ less ~/.gitconfig	
+$ git config -l --global
+~~~~~~~~~~~~~ 
 	
 ### 建立本地 Git 仓库 ###
 既然是分布式，就可以直接干活了。创一个干净目录`helloworld`
 
-    $ cd ~
-	$ mkdir helloworld
-	$ cd helloworld
-	$ git init   # 初始化本地仓库
-	Initialized empty Git repository in c:/Users/larrycai/helloworld/.git/
+~~~~~~~~~~~~~ {.bash}
+$ cd ~
+$ mkdir helloworld
+$ cd helloworld
+$ git init   # 初始化本地仓库
+Initialized empty Git repository in c:/Users/larrycai/helloworld/.git/
+~~~~~~~~~~~~~~~~~~
 	
 养成习惯经常看看有什么变化了。
 
-    $ find .
-	.
-	./.git
-	./.git/config
-	./.git/hooks
-	...
-	./.git/hooks/update.sample
-	./.git/info
-	./.git/objects
-	./.git/refs
-	./.git/refs/heads
-	./.git/refs/tags
+~~~~~~~~~~~~~ {.bash}
+$ find .
+.
+./.git
+./.git/config
+./.git/hooks
+...
+./.git/hooks/update.sample
+./.git/info
+./.git/objects
+./.git/refs
+./.git/refs/heads
+./.git/refs/tags
+~~~~~~~~~~~~~~~~~~~
 	
 你会发现建了`.git`目录，下面有很多东西，自己瞅瞅，琢磨琢磨，这也是平时自我提高的一个办法。不管怎样，这就是你的本地Git仓库了。
 
 ### 第一个提交 ###
 继续吧
 
-    $ cat "Hello Git World" > README # 建一个空文件
-	$ git status # 会发现报告红色的未跟踪的文件
-	$ git add README # 加入暂存（stage)区
-	$ git status & find . # 变绿色，跟踪了。产生一个索引
-	$ git commit -am "add first empty file” # 签入代码到本地，要养成好习惯写好提交的注释。
-	$ git status & find . # 干净了，索引变化了。
-	$ git log
-	$ git blame # 查看谁改的
+~~~~~~~~~~~~~ {.bash}
+$ cat "Hello Git World" > README # 建一个空文件
+$ git status # 会发现报告红色的未跟踪的文件
+$ git add README # 加入暂存（stage)区
+$ git status & find . # 变绿色，跟踪了。产生一个索引
+$ git commit -am "add first empty file” # 签入代码到本地，要养成好习惯写好提交的注释。
+$ git status & find . # 干净了，索引变化了。
+$ git log
+$ git blame # 查看谁改的
+~~~~~~~~~~~~~
 	
 体会每次的变化，就这么简单。
 
@@ -86,13 +96,15 @@ Git的学习曲线相对来说还是有点陡的，但只要掌握了基本的�
 
 一个Git仓库可以维护很多开发分支并快速切换。
 
-    $ git branch bug123 #创建关于 bug 123的分支
-	$ git branch  # 看看有哪些分支，master是主分支。
-	  bug123
-	* master
-	$ git checkout bug123 # 切换到bug123分支。
-	Switched to branch 'bug123'
-	$ git checkout -b bug234 # 创建并直接切换到bug234分支
+~~~~~~~~~~~~~ {.bash}
+$ git branch bug123 #创建关于 bug 123的分支
+$ git branch  # 看看有哪些分支，master是主分支。
+  bug123
+* master
+$ git checkout bug123 # 切换到bug123分支。
+Switched to branch 'bug123'
+$ git checkout -b bug234 # 创建并直接切换到bug234分支
+~~~~~~~~~~~~~ 
 	
 ### Git使用的良好习惯 ###	
 	
@@ -118,7 +130,9 @@ Git的学习曲线相对来说还是有点陡的，但只要掌握了基本的�
 
 ### 克隆 ###
 
-    $ git clone 
+~~~~~~~~~~~~~ {.bash}
+$ git clone 
+~~~~~~~~~~~~~ 
 	
 ### 与远程服务器相连的Git命令 ###
 

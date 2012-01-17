@@ -41,9 +41,11 @@ Maven还包括：
 ### 安装Maven ###
 装好JDK6，熟悉Unix环境，用Git bash安装Maven
 
-	$ cd /c  # Windows C:/
-	$ tar -zxvf ~/Desktop/apache-maven-2.2.1-bin.tar.gz
-	$ mv apache-maven-2.2.1 maven
+~~~~~~~~~~~~~ {.bash}
+$ cd /c  # Windows C:/
+$ tar -zxvf ~/Desktop/apache-maven-2.2.1-bin.tar.gz
+$ mv apache-maven-2.2.1 maven
+~~~~~~~~~~~~~	
 	
 在系统中配好环境变量`M2`、`M2_HOME`、`MAVEN_OPTS`、`PATH`，如下图
 
@@ -52,8 +54,10 @@ Insert 18333fig0402.png
 
 需要重新打开bash后配置才会起作用。
 
-	$ mvn --version
-	Apache Maven 2.2.1 (r801777; 2009-08-07 03:16:01+0800)
+~~~~~~~~~~~~~ {.bash}
+$ mvn --version
+Apache Maven 2.2.1 (r801777; 2009-08-07 03:16:01+0800)
+~~~~~~~~~~~~~
 
 ### Maven仓库管理器：Nexus ###
 不管怎么样，java的包在编译时还是要下载下来的，在企业中，最方便的是架设一个管理java的包的服务器，这就是Nexus。它会缓存远程仓库的Jar包。如下图 (源: http://today.java.net/article/2010/01/04/maven-repository-managers-enterprise)
@@ -63,14 +67,16 @@ Insert 18333fig0403.png
 
 对于个人来说，你不需要安装，只要在`~/.m2/settings.xml`配置指向Nexus服务器就好了，如
 
-	# ~/.m2/settings.xml
-	<mirrors>
-	  <mirror>
-	    <id>nexus</id>
-		<mirrorOf>*</mirrorOf>
-		<url>http://localhost:8081/nexus/content/groups/public</url>
-      </mirror>
-	</mirrors>
+~~~~~~~~~~~~~ {.xml}
+# ~/.m2/settings.xml
+<mirrors>
+  <mirror>
+	<id>nexus</id>
+	<mirrorOf>*</mirrorOf>
+	<url>http://localhost:8081/nexus/content/groups/public</url>
+  </mirror>
+</mirrors>
+~~~~~~~~~~~~~
 	
 ### 第一个maven命令 ###
 在你的Game of life项目中，输入命令`mvn package`，查看 `~/.m2`目录的变化。
@@ -84,7 +90,9 @@ Jenkins是现在最流行也最有效的持续集成服务器，它的前身是�
 ### 安装 ###
 不需要安装，直接启动后就可以在你的浏览器中打开。<http://localhost:7080>
 
-	$ java -jar ~/Deskop/jenkins.war --httpPort=7080
+~~~~~~~~~~~~~ {.bash}
+$ java -jar ~/Deskop/jenkins.war --httpPort=7080
+~~~~~~~~~~~~~
 	
 ### 安装Git插件 ###
 你可以从Jenkins系统中下载Git插件，也可以直接把它拷到`~/.jenkins/plugins`下，重启后就能起作用了。

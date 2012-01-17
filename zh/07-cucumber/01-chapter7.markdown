@@ -13,74 +13,80 @@ Insert 18333fig0701.png
 
 下面就是一个加法的例子，无需解释也能明白。Cucumber文件以`.feature`结尾。
 
-	# 加法 adding.feature
-	Feature: Adding
-	  In order to avoid silly mistakes
-	  As a math idiot
-	  I want to be told the sum of two numbers
-	  
-	  Scenario: Add two numbers
-		Given the input "2+2"
-		When the calculator is run
-		Then the output should be "4"
+~~~~~~~~~~~~~ {.cucubmer}
+# 加法 adding.feature
+Feature: Adding
+  In order to avoid silly mistakes
+  As a math idiot
+  I want to be told the sum of two numbers
+  
+  Scenario: Add two numbers
+    Given the input "2+2"
+    When the calculator is run
+    Then the output should be "4"
 
-	  Scenario Outline: Add two numbers
-		Given the input "<input>"
-		When the calculator is run
-		Then the output should be "<output>"
-		Examples:
-		  | input | output |
-		  | 2+2 | 4 |
-		  | 98+1 | 99 |
+  Scenario Outline: Add two numbers
+    Given the input "<input>"
+    When the calculator is run
+    Then the output should be "<output>"
+    Examples:
+      | input | output |
+      | 2+2 | 4 |
+      | 98+1 | 99 |
+~~~~~~~~~~~~~
 
 Cucumber的官方网站是http://cukes.info/ 
-		
+        
 ## 安装 ##
 在Windows上，RubyInstaller提供了ruby的环境，下载安装包（如`rubyinstaller-1.9.3-p0.exe`)，运行即可，别忘了把“Ruby放入PATH中”的选项选上。
 
 Insert 18333fig0702.png 
 图 7-2. Windows平台安装Cucumber
 
-	$ gem install cucumber # 如果需要配代理，-p http://<proxyserver>:<port>
-	$ gem install rspec # cucumber 需要
-	
+~~~~~~~~~~~~~ {.bash}
+$ gem install cucumber # 如果需要配代理，-p http://<proxyserver>:<port>
+$ gem install rspec # cucumber 需要
+~~~~~~~~~~~~~ 
+    
 ## 运行Cucumber ##
 
 一旦Cucumber装好了，我们就可以使用 cucumber 命令来运行feature文件。
 
 feature文件放在`features`目录下，如果cucumber命令后不跟任何东西的话，那么它会执行所有的.feature文件。如果我们只想运行某一个.feature文件，我们可以使用命令 `cucumber features\feature_name`
 
-	$ cucumber features/adding.feature
-	Feature: Adding
-	  In order to avoid silly mistakes
-	  As a math idiot
-	  I want to be told the sum of two numbers
+~~~~~~~~~~~~~ {.bash}
+$ cucumber features/adding.feature
+Feature: Adding
+  In order to avoid silly mistakes
+  As a math idiot
+  I want to be told the sum of two numbers
 
-	  Scenario: Add two numbers       # features\adding.feature:3
-		Given the input "2+2"         # features\adding.feature:4
-		When the calculator is run    # features\adding.feature:5
-		Then the output should be "4" # features\adding.feature:6
+  Scenario: Add two numbers       # features\adding.feature:3
+    Given the input "2+2"         # features\adding.feature:4
+    When the calculator is run    # features\adding.feature:5
+    Then the output should be "4" # features\adding.feature:6
 
-	  Scenario Outline: Add two numbers      # features\adding.feature:8
-		Given the input "<input>"            # features\adding.feature:9
-		When the calculator is run           # features\adding.feature:10
-		Then the output should be "<output>" # features\adding.feature:11
+  Scenario Outline: Add two numbers      # features\adding.feature:8
+    Given the input "<input>"            # features\adding.feature:9
+    When the calculator is run           # features\adding.feature:10
+    Then the output should be "<output>" # features\adding.feature:11
 
-		Examples:
-		  | input | output |
-		  | 2+2   | 4      |
-		  | 98+1  | 99     |
+    Examples:
+      | input | output |
+      | 2+2   | 4      |
+      | 98+1  | 99     |
 
-	3 scenarios (3 undefined)
-	9 steps (9 undefined)
-	0m0.046s
+3 scenarios (3 undefined)
+9 steps (9 undefined)
+0m0.046s
 
-	You can implement step definitions for undefined steps with these snippets:
+You can implement step definitions for undefined steps with these snippets:
 
-	Given /^the input "([^"]*)"$/ do |arg1|
-	  pending # express the regexp above with the code you wish you had
-	end
-	...
+Given /^the input "([^"]*)"$/ do |arg1|
+  pending # express the regexp above with the code you wish you had
+end
+...
+~~~~~~~~~~~~~
 
 你就可以看到它被正常执行了，后面几行是驱动层的模板，稍后解释。
 
@@ -109,14 +115,16 @@ Cucumber是一个解释程序，Cucumber用来执行解释 .feature文件里的G
 ## 常用的目录结构 ##
 常用的目录结构是
 
-	$ find calculator
-	calculator/
-	calculator/feature.html
-	calculator/features
-	calculator/features/adding.feature
-	calculator/features/division.feature
-	calculator/step_definitions
-	calculator/step_definitions/calculator_steps.rb
+~~~~~~~~~~~~~ {.bash}
+$ find calculator
+calculator/
+calculator/feature.html
+calculator/features
+calculator/features/adding.feature
+calculator/features/division.feature
+calculator/step_definitions
+calculator/step_definitions/calculator_steps.rb
+~~~~~~~~~~~~~
 
  1. `features`下面按功能放置各个业务。
  2. `step_definitions`存放驱动层的脚本。
