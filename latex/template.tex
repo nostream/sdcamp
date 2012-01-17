@@ -16,10 +16,27 @@
 \usepackage{array}
 \usepackage[font=small,format=plain,labelfont=bf,up,textfont=it,up]{caption}
 
+\usepackage{titlesec} % texlive-latex-extra package
+
+\definecolor{colorchapter}{RGB}{70,130,180}     % SteelBlue
+\definecolor{colorsection}{RGB}{95,158,160}    % CadetBlue
+\definecolor{colorsubsection}{RGB}{139,0,0} % DarkRed
+\definecolor{colorheader}{RGB}{70,130,180} % SteelBlue
+
+
+\titleformat{\section}
+{\color{colorsection}\normalfont\Large\bfseries}
+{\color{colorsection}\thesection}{1em}{}
+\titleformat{\subsection}
+{\color{colorsubsection}\normalfont\large\bfseries}
+{\color{colorsubsection}\thesubsection}{1em}{}
+
 \definecolor{shadecolor}{gray}{0.90}
 
 \setromanfont[Mapping=tex-text,BoldFont=<%= config['bold'] %>]{<%= config['font'] %>}
 \setmonofont{<%= config['mono'] %>}
+
+
 
 \XeTeXlinebreaklocale{<%= lang %>}
 <%= config['langrule'] %>
@@ -116,19 +133,20 @@
 \renewcommand{\figurename}{<%= config['fig'] %>}
 \renewcommand{\tablename}{<%= config['tab'] %>}
 
+% chapter 
 \makeatletter
 \def\@makechapterhead#1{%
   \vspace*{50\p@}%
   {\parindent \z@ \raggedright \normalfont
     \ifnum \c@secnumdepth >\m@ne
       \if@mainmatter
-        \huge\bfseries \prechap \thechapter \postchap
-        \par\nobreak
+        \color{colorchapter}\normalfont\huge\bfseries \prechap \thechapter \postchap
+		\par\nobreak
         \vskip 20\p@
       \fi
     \fi
     \interlinepenalty\@M
-    \Huge \bfseries #1\par\nobreak
+    \color{colorchapter}\normalfont\Huge\bfseries #1\par\nobreak
     \vskip 40\p@
   }}
 \makeatother
@@ -142,12 +160,14 @@
 \setcounter{tocdepth}{4}
 \tableofcontents\newpage\thispagestyle{empty}
 
+% customize header & footer
 \mainmatter
 \fancyhf{}
-\fancyhead[LE]{{\small\leftmark}}
-\fancyhead[RO]{{\small\rightmark}}
-\fancyhead[RE,LO]{{\small\textbf{\savedtitle}}}
+\fancyhead[LE]{\color{colorheader}\small\leftmark}
+\fancyhead[RO]{\color{colorheader}\small\rightmark}
+\fancyhead[RE,LO]{\color{colorheader}\small{\savedtitle}}
 \fancyfoot[LE,RO]{\small\textbf\thepage}
+%\renewcommand{\headrulewidth}{0.4pt}  % add one line
 \pagestyle{fancy}
 
 <%= latex %>
