@@ -13,6 +13,7 @@
 \usepackage{booktabs}
 \usepackage{indentfirst}
 \usepackage{framed,color}
+\usepackage[perpage]{footmisc}
 \usepackage{array}
 \usepackage[font=small,format=plain,labelfont=bf,up,textfont=it,up]{caption}
 
@@ -42,6 +43,7 @@
 <%= config['langrule'] %>
 
 \settowidth{\parindent}{<%= config['indent'] %>}
+\setcounter{footnote}{0}
 
 \title{{<%= config['title'] %>}}
 \author{Larry Cai}
@@ -59,7 +61,7 @@
 \author{\textbf{\savedauthor}\thanks{<%= config['thanks'] %>}}
 \def\w3cdtfymd{\the\year-\ifnum\month<10 0\fi\the\month-\ifnum\day<10 0\fi\the\day}
 \date{\w3cdtfymd}
-\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+%\renewcommand{\thefootnote}{\fnsymbol{footnote}}
 
 \newcommand{\PreserveBackslash}[1]{\let\temp=\\#1\let\\=\temp}
 \let\PBS=\PreserveBackslash

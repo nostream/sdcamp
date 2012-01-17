@@ -18,7 +18,7 @@
 Insert 18333fig0201.png 
 图 2-1. 敏捷宣言
 
-敏捷的技术实践在敏捷出现前就出现了，如持续集成，代码共享，结对编程。甚至是那些敏捷流派，如XP、Scrum、FDD都早就有了。只是这些技术先驱们觉得单打独斗太累，因此在一次聚会中一起创建了[敏捷宣言][2]。
+敏捷的技术实践在敏捷出现前就出现了，如持续集成，代码共享，结对编程。甚至是那些敏捷流派，如XP、Scrum、FDD都早就有了。只是这些技术先驱们觉得单打独斗太累，因此在一次聚会中一起创建了敏捷宣言[^1]。
 
 ### 敏捷流派 ###
 从2004年起，敏捷开始展露锋芒，主要原因是恰好互联网企业需要快速开发，快速交付。他们就顺理成章地采用了敏捷的方式。
@@ -32,7 +32,7 @@ Insert 18333fig0201.png
 这里，我们主要以Scrum来讲解敏捷，但千万别以为Scrum就是敏捷。可以阅读相关知识来了解更多的敏捷。
 
 ## Scrum 基本知识 ##
-[Scrum][1]是迭代式增量软件开发过程，也是一种敏捷软件开发的框架，通常用于敏捷软件开发。Scrum在英语的意思是橄榄球里的争球。
+Scrum[^2]是迭代式增量软件开发过程，也是一种敏捷软件开发的框架，通常用于敏捷软件开发。Scrum在英语的意思是橄榄球里的争球。
 
 ### 基本角色 ###
 Scrum是一个包括了一系列实践和预定义角色的过程框架。Scrum中的主要角色包括：
@@ -87,5 +87,5 @@ Insert 18333fig0203.png
  3. 你的Scrum检查列表：http://www.infoq.com/cn/minibooks/scrum-checklists-cn
  4. What is scrum? http://www.scrumalliance.org/pages/what_is_scrum
  
- [1]: http://zh.wikipedia.org/wiki/Scrum
- [2]: http://agilemanifesto.org/iso/zhchs/
+ [^1]: http://zh.wikipedia.org/wiki/Scrum
+ [^2]: http://agilemanifesto.org/iso/zhchs/
