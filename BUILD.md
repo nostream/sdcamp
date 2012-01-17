@@ -1,14 +1,50 @@
 # Introduction #
 
-As open source books, ebooks and pdf format should be created on fly, the following chapter describe those solution detail.
+As open source books, ebooks and pdf format should be created on fly, the following sections describe those solution in detail.
 
-The solution below is reused from [Pro Git](progit)
+The solution below is reused from [Pro Git][progit]
 
-#Making Ebooks#
+# Making Pdf books #
+PDF format is used to printout in nice way like real book, and [Calibre][calibre] is not good at this area, [pandoc](http://johnmacfarlane.net/pandoc/) is used instead to generate latex from markdown, and latex tool `xelatex` (is part of [TexLive][texlive] now) is used to convert pdf from latex.
+
+Please check [ctax](http://www.ctan.org/) and [TexLive][texlive] for more background for latex, which is quite complicated and elegant if you have never touched before.
+
+## Ubuntu Platform ##
+
+Ubuntu Platform Oneiric (11.10) is used mainly due to pandoc. 
+
+[pandoc](http://johnmacfarlane.net/pandoc/) can be installed using `apt-get` command directly, which version is 1.8.x, if you use Ubuntu 11.04, then it is just 1.5.x.
+
+Though texlive 2011 can be installed separately, the default one texlive 2009 from Ubuntu repository is good enough exists inside. 
+
+	$ sudo apt-get install pandoc
+    $ sudo apt-get texlive-xelatex
+    $ sudo apt-get texlive-latex-recommended # main packages
+    $ sudo apt-get texlive-latex-extra # package titlesec
+	
+You need to install related fonts like Chinese, fortunately they exist in repository already.
+    
+    $ sudo apt-get install ttf-arphic-gbsn00lp ttf-arphic-ukai # from arphic 
+	$ sudo apt-get install ttf-wqy-microhei ttf-wqy-zenhei # from WenQuanYi
+
+Then it should work perfectly
+
+	$ ./makeebooks zh
+    
+Just remind you, some [extra pandoc markdown format](http://johnmacfarlane.net/pandoc/README.html) is used inside this book:
+
+  * code syntax highlight (doesn't work in pdf, while it should work in html/epub
+  * footnote 
+    
+# Making Ebooks #
+
+** In long term ** I will use pandoc instead of solution below since from 1.8.x, pandoc supports for epub as well.
 
 [ruby rdiscount](https://github.com/rtomayko/rdiscount) is used to convert all the markdown files to html format.
 
-[Calibre](calibre)'s command `ebook-convert` is used to convert html files into ebooks like `.mobi` (Kindle) and `.epub` (for iPad), it exists in several platforms (Windows, OS X, Linux).
+[Calibre][calibre]'s command `ebook-convert` is used to convert html files into ebooks like `.mobi` (Kindle) and `.epub` (for iPad), it exists in several platforms (Windows, OS X, Linux).
+
+[Calibre][calibre] needs X-Windows for some reason, If X-Windows is not used like server only, then [xvfb](http://en.wikipedia.org/wiki/Xvfb) (Virtual Framebuffer 'fake' X server) package should be installed to support headless X-Windows. Simple X-Windows server like XMing doesn't support X-Input.
 
 After preparing the environment, you can simple run the command below to generate related ebooks
 
@@ -42,10 +78,14 @@ Ubuntu 11.04 (Natty) is verified, it should work in other version as well with s
 	*** extconf.rb failed ***
 	...
 	
-[Calibre](calibre)'s command `ebook-convert` is under `calibre` directory, it should be added into your path, then the related ebook can be created.	
+[Calibre][calibre]'s command `ebook-convert` is under `calibre` directory, it should be added into your path, then the related ebook can be created.
+
+Then you should be able to generate pdf
+
+    $ xvfb-run ./makeebooks zh # if no X-Windows	
 	
 ## Fedora platform ##
-This is copied from [Pro Git](progit), not verified yet
+This is copied from [Pro Git][progit], not verified yet
 
 On Fedora you can run something like this::
 
@@ -53,33 +93,6 @@ On Fedora you can run something like this::
     $ gem install rdiscount
     $ makeebooks en  # will produce a mobi
 	
-#Making Pdf books#
-PDF format is used to printout in nice way like real book, and [Calibre](calibre) is not good at this area, [pandoc](http://johnmacfarlane.net/pandoc/) is used instead to generate latex from markdown, and latex tool `xelatex` (is part of [TexLive](texlive) now) is used to convert pdf from latex.
-
-Please check [ctax](http://www.ctan.org/) and [TexLive](texlive) for more background for latex, which is quite complicated and elegant if you have never touched before.
-
-## Ubuntu Platform ##
-
-[pandoc](http://johnmacfarlane.net/pandoc/) can be installed using `apt-get` command directly.
-
-Though texlive exists inside Ubuntu repository, it is little old. texlive 2011 from [TexLive](texlive) is recommended. After installed according to the instruction, configure the binary path.
-
-`pandoc` needed X-Windows for some reason, If X-Windows is not used like server only, then [xvfb](http://en.wikipedia.org/wiki/Xvfb) (Virtual Framebuffer 'fake' X server) package should be installed to support headless X-Windows. Simple X-Windows server like XMing doesn't support X-Input.
-
-	$ sudo apt-get install pandoc
-	$ #mount texlive iso file and install directly
-	$ export PATH=$PATH:/usr/local/texlive/2011/bin/i386-linux
-	$ sudo apt-get install xvfb
-	
-You may need to install related fonts like Chinese, fortunately they exist in repository already.
-    
-    $ sudo apt-get install language-support-fonts-zh-hans	
-	
-Then you should be able to generate pdf
-
-    $ xvfb-run ./makeebooks zh # if no X-Windows
-	$ ./makeebooks zh
-
-[calibre] : http://calibre-ebook.com/
-[progit] : http://github.com/progit/progit 
-[texlive] : http://www.tug.org/texlive/
+[calibre]: http://calibre-ebook.com/
+[progit]: http://github.com/progit/progit 
+[texlive]: http://www.tug.org/texlive/
