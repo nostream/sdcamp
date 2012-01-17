@@ -13,7 +13,7 @@ Insert 18333fig0701.png
 
 下面就是一个加法的例子，无需解释也能明白。Cucumber文件以`.feature`结尾。
 
-~~~~~~~~~~~~~ {.cucubmer}
+~~~~~~~~~~~~~ {.cucumber}
 # 加法 adding.feature
 Feature: Adding
   In order to avoid silly mistakes
